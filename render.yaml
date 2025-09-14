@@ -11,6 +11,20 @@ services:
       - key: NODE_ENV
         value: production
       - key: PORT
-        value: 10000
-      - key: DATABASE_URL
-        sync: false  
+
+       # Database connection details
+      - key: DATABASE_NAME
+        sync: false
+      - key: DATABASE_USERNAME
+        sync: false
+      - key: DATABASE_PASSWORD
+        sync: false
+      - key: DATABASE_HOST
+        sync: false
+      - key: DATABASE_PORT
+        sync: false
+
+      - key: ENABLE_SSL
+        value: "true"
+      - key: DATABASE_SSL_CA
+        sync: false   
