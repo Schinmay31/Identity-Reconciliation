@@ -1,13 +1,12 @@
-import { DataTypes } from "sequelize";
+import { DataTypes, UUIDV4 } from "sequelize";
 import { sequelize } from "../../config/database.connection";
-import { v4 as uuidv4 } from "uuid";
 
 const Contact = sequelize.define(
   "Contact",
   {
     id: {
       type: DataTypes.UUID,
-      defaultValue: uuidv4,
+      defaultValue: UUIDV4,
       primaryKey: true,
     },
     phoneNumber: {
@@ -17,9 +16,6 @@ const Contact = sequelize.define(
     email: {
       type: DataTypes.STRING(255),
       allowNull: true,
-      validate: {
-        isEmail: true,
-      },
     },
     linkedId: {
       type: DataTypes.UUID,
