@@ -29,7 +29,7 @@ export class App {
 
   private createTables = async () => {
     try {
-      await sequelize.sync({ alter: true });
+      await sequelize.sync({ alter : true , logging: console.log });
       console.log("Tables created successfully!");
     } catch (error) {
       console.error("Error creating tables:", error);
@@ -78,7 +78,7 @@ export class App {
     this.server.listen(this.port, () => {
       console.log(`App is listening on port ${this.port}`);
 
-      // this.createTables();
+      // this.createTables();   // UNCOMMENT THIS AND RUN THE APP SYNC THE DATABASE WITH CURRENT MODEL
       databaseConnection();
     });
     return this.server;
